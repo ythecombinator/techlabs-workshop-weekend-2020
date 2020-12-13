@@ -7,7 +7,7 @@
 <br>
 <br>
 
-<p align="center"> Monorepo containing the Bredal management platform. </p>
+<p align="center"> Sample app used during my "Building a modern front-end application for your project" workshop.</p>
 
 <br>
 <br>
