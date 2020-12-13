@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC} from 'react';
 
-function App() {
+import {ThemeProvider} from '@material-ui/styles';
+import {createBrowserHistory} from 'history';
+import {renderRoutes} from 'react-router-config';
+import {Router} from 'react-router-dom';
+
+import 'shared/assets/index.css';
+import routes from 'shared/utils/routes';
+import theme from 'shared/utils/theme';
+
+const history = createBrowserHistory();
+
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router history={history}>{renderRoutes(routes)}</Router>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
