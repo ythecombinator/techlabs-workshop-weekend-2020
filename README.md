@@ -1,46 +1,124 @@
-# Getting Started with Create React App
+<h1 align="center">
+	<img src="preview.png" alt="TechLabs" width="800px">
+	<br>
+	<br>
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
+<br>
 
-## Available Scripts
+<p align="center"> Monorepo containing the Bredal management platform. </p>
 
-In the project directory, you can run:
+<br>
+<br>
 
-### `yarn start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone the repository.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```sh
+git clone https://github.com/ythecombinator/techlabs-workshop-weekend-2020
+```
 
-### `yarn test`
+`cd` into the directory.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+cd techlabs-workshop-weekend-2020
+```
 
-### `yarn build`
+Install the project dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# or
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm install
+```
 
-### `yarn eject`
+Start the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+yarn start
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# or
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+npm run start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+🚀 Head over to [localhost:3000](http://localhost:3000) in your browser of choice.
 
-## Learn More
+## Toolbelt
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [x] React as a UI language
+- [x] Typescript for compile-time safety and code scalability with Interface oriented development
+- [x] Material UI as our design toolkit
+- [x] Formik + Yup for forms and their validation
+- [x] SWR for data fetching
+- [x] Day.js for date handling
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
+
+The project follows a regular [create-react-app](https://github.com/facebook/create-react-app) skeleton with very few modifications.
+
+Under the src folder, we have two main directories:
+
+### `shared`:
+
+Which contains, as the name suggests, shared behavior, including:
+
+- `assets/`: Images, CSS files, and other static assets
+- `components/`: Components reused across pages
+- `layouts/`: Reusable Layouts
+- `models/`: Shared interfaces, enums, type aliases, and other TypeScript stuff
+- `utils/`: Helper functions reusable across the project
+
+### `modules/`:
+
+These are each isolated functionality. Examples are:
+
+- `auth`, split into `sign-in` and `sign-up`;
+- `home`
+- `events`
+
+Each module is organized in:
+
+- `components/`: Components relevant to that page
+- `hooks`: Selectors, data access and mutation, and other hooks
+- `models/`: TypeScript relevant stuff
+
+Directories look like this:
+
+```sh
+|-- shared/
+|   |-- api/
+|   |-- assets/
+|   |-- components/
+|   |-- core/
+|   |-- layouts/
+|   |-- models/
+|   |-- utils/
+|   |-- ...
+|-- modules/
+|	|-- auth/
+|		|-- sign-in/
+|		|   |-- ...
+|		|-- sign-up/
+|		|   |-- ...
+|	   	|-- ...
+|	|-- events/
+|		|-- components/
+|		|-- core/
+|		|-- hooks.ts
+|		|-- models.ts
+|		|-- index.ts
+|		|-- ...
+|   |-- ...
+|   |-- api/
+|   |-- assets/
+|   |-- components/
+|   |-- core/
+|   |-- layouts/
+|   |-- models/
+|   |-- utils/
+```
